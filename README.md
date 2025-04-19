@@ -58,13 +58,6 @@ http://localhost:5173
   
   Pull requests are welcome!  
   Fork the repo, make your changes, and open a PR 🚀
-  
----
-  
-## 📄 License
-  
-  This project is licensed under the [MIT License](LICENSE).
-
 
 ---
 
