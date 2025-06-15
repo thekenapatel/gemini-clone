@@ -45,16 +45,6 @@ http://localhost:5173
 
 ```
 
-
----
-
-
-## 📷 Screenshot
-![gemini clone image](https://github.com/user-attachments/assets/f9cd0989-5547-45dd-85ea-38384ab82756)
-![Screenshot (149)](https://github.com/user-attachments/assets/c9c35f11-2e54-4c08-95b6-c41282e961d2)
-![Screenshot 2025-04-19 224317](https://github.com/user-attachments/assets/0d587b31-77c4-48cd-8582-3ab7e866f2bc)
-
-
 ## 🌐 Live Demo
 
 [Click here to try live version of Gemini Clone](https://thekenapatel.github.io/gemini-clone/)
