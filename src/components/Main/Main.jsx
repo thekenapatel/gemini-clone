@@ -1,7 +1,6 @@
 import { useContext, useState, useEffect } from 'react'
 import PropTypes from 'prop-types';
 import './Main.css'
-import { assets } from '../../assets/assets'
 import { Context } from '../../context/Context'
 import { signInWithGoogle } from '../auth';
 import ExploreIcon from '@mui/icons-material/ExploreOutlined';
@@ -11,7 +10,6 @@ import CodeIcon from '@mui/icons-material/CodeOutlined';
 import AddPhotoIcon from '@mui/icons-material/AddPhotoAlternateOutlined';
 import KeyboardVoiceIcon from '@mui/icons-material/KeyboardVoiceOutlined';
 import SendIcon from '@mui/icons-material/SendRounded';
-
 
 function Main({ user }) {
     const { onSent, recentPrompt, showResult, loading, resultData, setInput, input } = useContext(Context);
@@ -100,11 +98,9 @@ function Main({ user }) {
                     </>
                     : <div className='result'>
                         <div className="result-title">
-                            <img src={assets.user_icon} alt="" />
                             <p>{recentPrompt}</p>
                         </div>
                         <div className="result-data">
-                            <img src={assets.gemini_icon} alt="" />
                             {loading ?
                                 <div className='loader'>
                                     <hr />

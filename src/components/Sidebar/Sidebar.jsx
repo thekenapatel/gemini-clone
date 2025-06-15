@@ -1,16 +1,11 @@
 import { useContext, useState } from 'react';
 import './Sidebar.css';
-// import { assets } from '../../assets/assets';
 import { Context } from '../../context/Context';
 import { IconButton } from '@mui/material';
 import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
 import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
-// import AddIcon from '@mui/icons-material/AddRounded';
-// import newnoteIcon from '../../assets/newnote.png';
 import EditNoteRoundedIcon from '@mui/icons-material/EditNoteRounded';
 import MenuIcon from '@mui/icons-material/MenuRounded';
-// import HelpIcon from '@mui/icons-material/QuestionMark';
-// import HistoryIcon from '@mui/icons-material/HistoryRounded';
 import SettingsIcon from '@mui/icons-material/SettingsOutlined';
 import PropTypes from 'prop-types';
 

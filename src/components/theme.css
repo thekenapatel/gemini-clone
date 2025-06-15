@@ -1,6 +1,10 @@
-body.dark-mode .main,
-body.dark-mode .sidebar {
+body.dark-mode .main {
     background: #212529;
+}
+
+body.dark-mode .sidebar {
+    background: #2d3032;
+    color: #e9ecef;
 }
 
 body.dark-mode .main .nav,
@@ -46,9 +50,6 @@ body.dark-mode .bottom-info {
 
 
 /* sidebar theme */
-body.dark-mode .sidebar {
-    color: #e9ecef;
-}
 
 body.dark-mode .bottom-item:hover,
 body.dark-mode .new-chat:hover,
