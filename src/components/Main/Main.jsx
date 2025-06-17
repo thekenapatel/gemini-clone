@@ -3,13 +3,15 @@ import PropTypes from 'prop-types';
 import './Main.css'
 import { Context } from '../../context/Context'
 import { signInWithGoogle } from '../auth';
-import ExploreIcon from '@mui/icons-material/ExploreOutlined';
-import LightbulbIcon from '@mui/icons-material/LightbulbOutlined';
-import ChatBubbleIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
-import CodeIcon from '@mui/icons-material/CodeOutlined';
+// import ExploreIcon from '@mui/icons-material/ExploreOutlined';
+// import LightbulbIcon from '@mui/icons-material/LightbulbOutlined';
+// import ChatBubbleIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
+// import CodeIcon from '@mui/icons-material/CodeOutlined';
 import AddPhotoIcon from '@mui/icons-material/AddPhotoAlternateOutlined';
 import KeyboardVoiceIcon from '@mui/icons-material/KeyboardVoiceOutlined';
 import SendIcon from '@mui/icons-material/SendRounded';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+
 
 function Main({ user }) {
     const { onSent, recentPrompt, showResult, loading, resultData, setInput, input } = useContext(Context);
@@ -27,6 +29,12 @@ function Main({ user }) {
         return () => document.removeEventListener("click", closeMenu);
     }, []);
 
+    // Get the best available profile photo
+    const profilePhoto =
+        user?.photoURL ||
+        (user?.providerData && user.providerData[0]?.photoURL) ||
+        null;
+
 
     return (
         <div className="main">
@@ -34,13 +42,17 @@ function Main({ user }) {
                 <p>Gemini</p>
 
                 <div className="user-profile" onClick={toggleMenu}>
-                    {user?.photoURL && (
+                    {user === null ? (
+                        <span>Loading...</span>
+                    ) : profilePhoto ? (
                         <img
-                            src={user?.photoURL || "User Image"}
+                            src={profilePhoto}
                             alt="Profile"
                             className="profile-picture"
-                            onError={(e) => (e.target.src = "fallback-image-url")}
+                            onError={e => e.target.src = "/default-avatar.png"}
                         />
+                    ) : (
+                        <AccountCircleIcon className="profile-default-icon" />
                     )}
                     {showMenu && (
                         <div className="user-menu" onClick={(e) => e.stopPropagation()}>
@@ -48,14 +60,16 @@ function Main({ user }) {
                                 <p className="menu-user-email" id="user-email">
                                     {user?.email || "Not logged in"}
                                 </p>
-                                {user?.photoURL && (
+                                {profilePhoto ? (
                                     <img
-                                        src={user?.photoURL || "User Image"}
+                                        src={profilePhoto}
                                         alt="User Profile"
                                         className="menu-profile-pic"
                                         id="user-pic"
-                                        onError={(e) => (e.target.src)}
+                                        onError={e => e.target.src = "/default-avatar.png"}
                                     />
+                                ) : (
+                                    <AccountCircleIcon className="profile-default-icon menu-profile-pic" />
                                 )}
                                 <p className="menu-user-name" id="user-name">
                                     Hi, {user?.displayName || "Guest"}!
@@ -74,10 +88,10 @@ function Main({ user }) {
                 {!showResult
                     ? <>
                         <div className="greet">
-                            <p><span>Hello, Leo.</span></p>
-                            <p>How can I help you today?</p>
+                            <p><span>Hello, {user?.displayName || "Leo"}.</span></p>
+                            {/* <p>How can I help you today?</p> */}
                         </div>
-                        <div className="cards">
+                        {/* <div className="cards">
                             <div className="card">
                                 <p>Suggest beautiful places to see on an upcoming road trip</p>
                                 <ExploreIcon className='bottom-icon' />
@@ -94,7 +108,7 @@ function Main({ user }) {
                                 <p>Tell me about React Javascript or React Native</p>
                                 <CodeIcon className='bottom-icon' />
                             </div>
-                        </div>
+                        </div> */}
                     </>
                     : <div className='result'>
                         <div className="result-title">
@@ -134,6 +148,11 @@ Main.propTypes = {
         photoURL: PropTypes.string,
         email: PropTypes.string,
         displayName: PropTypes.string,
+        providerData: PropTypes.arrayOf(
+            PropTypes.shape({
+                photoURL: PropTypes.string,
+            })
+        ),
     }),
 };
 

@@ -69,6 +69,36 @@
     background-color: #d8dde3;
 }
 
+@media (max-width:900px) {
+    .sidebar {
+        width: 70px;
+        padding: 24px 8px;
+        align-items: center;
+    }
+
+    .sidebar .new-chat p,
+    .sidebar .recent-title,
+    .sidebar .recent-entry p,
+    .sidebar .bottom-item p {
+        display: none;
+    }
+
+    .sidebar .recent,
+    .sidebar .bottom {
+        align-items: center;
+    }
+
+    .sidebar .top,
+    .sidebar .bottom {
+        align-items: center;
+    }
+
+    .sidebar .new-chat {
+        justify-content: center;
+        padding: 10px;
+    }
+}
+
 @media (max-width:600px) {
     .sidebar {
         display: none;
