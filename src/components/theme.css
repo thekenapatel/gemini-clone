@@ -1,4 +1,5 @@
-body.dark-mode .main {
+body.dark-mode .main,
+body.dark-mode .main-bottom {
     background: #212529;
 }
 
@@ -6,6 +7,19 @@ body.dark-mode .sidebar {
     background: #2d3032;
     color: #e9ecef;
 }
+
+
+body.dark-mode .switch-account,
+body.dark-mode .user-menu {
+    background: #212529;
+    color: #e9ecef;
+    border: 2px solid #474d53;
+}
+
+body.dark-mode .switch-account:hover {
+    background: #1e2226;
+}
+
 
 body.dark-mode .main .nav,
 body.dark-mode .card p {
