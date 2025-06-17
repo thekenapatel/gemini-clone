@@ -16,6 +16,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 function Main({ user }) {
     const { onSent, recentPrompt, showResult, loading, resultData, setInput, input } = useContext(Context);
     const [showMenu, setShowMenu] = useState(false);
+    const [imgError, setImgError] = useState(false);
 
     const toggleMenu = (e) => {
         e.stopPropagation(); // Avoid closing when clicking the avatar
@@ -44,12 +45,12 @@ function Main({ user }) {
                 <div className="user-profile" onClick={toggleMenu}>
                     {user === null ? (
                         <span>Loading...</span>
-                    ) : profilePhoto ? (
+                    ) : profilePhoto && !imgError ? (
                         <img
                             src={profilePhoto}
                             alt="Profile"
                             className="profile-picture"
-                            onError={e => e.target.src = "/default-avatar.png"}
+                            onError={() => setImgError(true)}
                         />
                     ) : (
                         <AccountCircleIcon className="profile-default-icon" />
@@ -60,13 +61,13 @@ function Main({ user }) {
                                 <p className="menu-user-email" id="user-email">
                                     {user?.email || "Not logged in"}
                                 </p>
-                                {profilePhoto ? (
+                                {profilePhoto && !imgError ? (
                                     <img
                                         src={profilePhoto}
                                         alt="User Profile"
                                         className="menu-profile-pic"
                                         id="user-pic"
-                                        onError={e => e.target.src = "/default-avatar.png"}
+                                        onError={() => setImgError(true)}
                                     />
                                 ) : (
                                     <AccountCircleIcon className="profile-default-icon menu-profile-pic" />
