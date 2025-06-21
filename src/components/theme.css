@@ -8,6 +8,17 @@ body.dark-mode .sidebar {
     color: #e9ecef;
 }
 
+/* 
+body.dark-mode .user-profile {
+    background: #212529;
+    color: #c4c7c5;
+    border: 2px solid #474d53;
+}
+
+body.dark-mode .user-profile:hover {
+    box-shadow: 0 1px 8px 0 #ffffff33;
+} */
+
 
 body.dark-mode .switch-account,
 body.dark-mode .user-menu {

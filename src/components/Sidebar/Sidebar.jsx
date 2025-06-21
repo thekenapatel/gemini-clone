@@ -82,7 +82,7 @@ const Sidebar = () => {
             <p className="recent-title">Recent</p>
             {prevPrompts.map((item, index) => (
               <div key={index} onClick={() => loadPrompt(item)} className="recent-entry">
-                <p>{item.slice(0, 18)} ...</p>
+                <p>{item.slice(0, 25)} ...</p>
               </div>
             ))}
           </div>

@@ -11,6 +11,7 @@ import AddPhotoIcon from '@mui/icons-material/AddPhotoAlternateOutlined';
 import KeyboardVoiceIcon from '@mui/icons-material/KeyboardVoiceOutlined';
 import SendIcon from '@mui/icons-material/SendRounded';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import GeminiLogo from '../../assets/images/gemini-logo.png';
 
 
 function Main({ user }) {
@@ -44,7 +45,7 @@ function Main({ user }) {
 
                 <div className="user-profile" onClick={toggleMenu}>
                     {user === null ? (
-                        <span>Loading...</span>
+                        <span>G</span>
                     ) : profilePhoto && !imgError ? (
                         <img
                             src={profilePhoto}
@@ -89,7 +90,7 @@ function Main({ user }) {
                 {!showResult
                     ? <>
                         <div className="greet">
-                            <p><span>Hello, {user?.displayName || "Leo"}.</span></p>
+                            <p><span>Hello, {user?.displayName || "user"}.</span></p>
                             {/* <p>How can I help you today?</p> */}
                         </div>
                         {/* <div className="cards">
@@ -115,7 +116,8 @@ function Main({ user }) {
                         <div className="result-title">
                             <p>{recentPrompt}</p>
                         </div>
-                        <div className="result-data">
+                        <div className={`result-data${loading ? ' loading' : ''}`}>
+                            <img src={GeminiLogo} alt="Gemini Logo" className="gemini-logo" />
                             {loading ?
                                 <div className='loader'>
                                     <hr />
@@ -125,6 +127,7 @@ function Main({ user }) {
                                 : <p dangerouslySetInnerHTML={{ __html: resultData }}></p>
                             }
                         </div>
+
                     </div>
                 }
 

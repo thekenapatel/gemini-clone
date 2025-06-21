@@ -2,8 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  /* font-family: Outfit, sans-serif; */
-  font-family: Google Sans Flex, Google Sans, Helvetica Neue, sans-serif;
+  font-family: 'Google Sans Flex', 'Google Sans', 'Helvetica Neue', sans-serif;
 }
 
 #root {

@@ -141,7 +141,7 @@
 
 /* Each recent entry */
 .recent-entry {
-    padding: 10px 15px;
+    padding: 10px 20px;
     border-radius: 50px;
     cursor: pointer;
     transition: background-color 0.2s ease;

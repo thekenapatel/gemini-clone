@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import PropTypes from "prop-types";
 import run from "../config/gemini";
 
 export const Context = createContext();
@@ -83,6 +84,10 @@ const ContextProvider = (props) => {
         </Context.Provider>
     )
 }
+
+ContextProvider.propTypes = {
+    children: PropTypes.node
+};
 
 
 export default ContextProvider;
